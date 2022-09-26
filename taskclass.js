@@ -22,6 +22,21 @@ class RangeValidator {
     this._to = to;
   }
 
+  get arrayRange () {
+    return [this.from, this.to];
+  };
+ 
+
+validate (num) {
+  if (num >= this.from && num <= this.to) {
+    return num;
+  }
+  throw new TypeError('Number isn`t in range')
+}
 }
 
-const range1 = new RangeValidator(5,10);
+const range = new RangeValidator(5,10);
+
+console.log(range.arrayRange);
+console.log(range.validate(10));
+console.log(range.validate(1000))
